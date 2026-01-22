@@ -1,4 +1,6 @@
-export const mockEmployees = [
+import type { Employee } from '../pages/Employees/types';
+
+export const mockEmployees: Employee[] = [
   {
     id: '1',
     name: 'John Doe',
@@ -25,5 +27,23 @@ export const mockEmployees = [
     position: 'Sales Representative',
     hireDate: '2023-03-10',
     status: 'active',
+  },
+  {
+    id: '4',
+    name: 'Alice Williams',
+    email: 'alice.williams@company.com',
+    department: 'Engineering',
+    position: 'Frontend Developer',
+    hireDate: '2023-08-01',
+    status: 'active',
+  },
+  {
+    id: '5',
+    name: 'Charlie Brown',
+    email: 'charlie.brown@company.com',
+    department: 'HR',
+    position: 'HR Specialist',
+    hireDate: '2020-11-15',
+    status: 'on-leave',
   },
 ];

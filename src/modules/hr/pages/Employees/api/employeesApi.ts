@@ -1,39 +1,32 @@
 import type { Employee, EmployeeFormData } from '../types';
+import { mockEmployees } from '@/modules/hr/data/mock';
 
-// API calls for employees
+// TODO: Replace mock data with actual API calls using shared interceptor
+// import { api } from '@/utils/api';
+
 export const employeesApi = {
   getAll: async (): Promise<Employee[]> => {
-    // Implementation - replace with actual API call
-    const response = await fetch('/api/hr/employees');
-    return response.json();
+    // TODO: api.get('/hr/employees')
+    return mockEmployees;
   },
-  getById: async (id: string): Promise<Employee> => {
-    // Implementation
-    const response = await fetch(`/api/hr/employees/${id}`);
-    return response.json();
+
+  getById: async (id: string): Promise<Employee | undefined> => {
+    // TODO: api.get(`/hr/employees/${id}`)
+    return mockEmployees.find((emp) => emp.id === id);
   },
-  create: async (data: EmployeeFormData): Promise<Employee> => {
-    // Implementation
-    const response = await fetch('/api/hr/employees', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-    return response.json();
+
+  create: async (_data: EmployeeFormData): Promise<Employee> => {
+    // TODO: api.post('/hr/employees', data)
+    throw new Error('Not implemented');
   },
-  update: async (id: string, data: Partial<EmployeeFormData>): Promise<Employee> => {
-    // Implementation
-    const response = await fetch(`/api/hr/employees/${id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-    return response.json();
+
+  update: async (_id: string, _data: Partial<EmployeeFormData>): Promise<Employee> => {
+    // TODO: api.put(`/hr/employees/${id}`, data)
+    throw new Error('Not implemented');
   },
-  delete: async (id: string): Promise<void> => {
-    // Implementation
-    await fetch(`/api/hr/employees/${id}`, {
-      method: 'DELETE',
-    });
+
+  delete: async (_id: string): Promise<void> => {
+    // TODO: api.delete(`/hr/employees/${id}`)
+    throw new Error('Not implemented');
   },
 };
